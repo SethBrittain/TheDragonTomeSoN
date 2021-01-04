@@ -16,7 +16,7 @@ _global_script_class_icons={
 [application]
 
 config/name="The Dragon Tome: Shadow of Nariss"
-run/main_scene="res://Scenes/Main Menu.tscn"
+run/main_scene="res://Scenes/SceneManger.tscn"
 config/icon="res://icon.png"
 
 [display]
@@ -25,7 +25,3 @@ window/size/width=1920
 window/size/height=1080
 window/stretch/mode="viewport"
 window/stretch/aspect="keep"
-
-[rendering]
-
-environment/default_environment="res://default_env.tres"
