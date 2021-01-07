@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://TestSprite.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/Untitled-1.png" type="Texture" id=2]
+
+[node name="Test Sprite" type="Sprite"]
+modulate = Color( 0.721569, 0.560784, 0.560784, 1 )
+position = Vector2( 1028.92, 616.829 )
+scale = Vector2( 34.0661, 35.6732 )
+texture = ExtResource( 2 )
+script = ExtResource( 1 )

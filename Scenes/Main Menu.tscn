@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Fonts/LinLibertine_DR.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Fonts/LinLibertineFiltered.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Styles/MenuButtonStyle.tres" type="StyleBox" id=3]
 [ext_resource path="res://Styles/MenuButtonHovered.tres" type="StyleBox" id=4]
 [ext_resource path="res://Scripts/MainMenuButtons.gd" type="Script" id=5]
+[ext_resource path="res://Sounds/ui_menu_click.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 115
@@ -61,7 +62,7 @@ __meta__ = {
 }
 
 [node name="TitleLabel" type="Label" parent="GUI Control/Borders/VBoxContainer/Title"]
-anchor_right = 0.98
+anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -77,14 +78,14 @@ __meta__ = {
 [node name="HBoxContainer" type="HBoxContainer" parent="GUI Control/Borders/VBoxContainer"]
 margin_top = 450.0
 margin_right = 1850.0
-margin_bottom = 925.0
+margin_bottom = 970.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="VBoxContainer" type="VBoxContainer" parent="GUI Control/Borders/VBoxContainer/HBoxContainer"]
 margin_right = 646.0
-margin_bottom = 475.0
+margin_bottom = 520.0
 rect_min_size = Vector2( 300, 475 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -95,9 +96,8 @@ __meta__ = {
 }
 
 [node name="Play" type="Button" parent="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 45.0
 margin_right = 646.0
-margin_bottom = 160.0
+margin_bottom = 115.0
 rect_min_size = Vector2( 0, 60 )
 focus_mode = 0
 custom_styles/hover = ExtResource( 4 )
@@ -107,9 +107,9 @@ text = " Play"
 align = 0
 
 [node name="Settings" type="Button" parent="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 180.0
+margin_top = 135.0
 margin_right = 646.0
-margin_bottom = 295.0
+margin_bottom = 250.0
 focus_mode = 0
 custom_styles/hover = ExtResource( 4 )
 custom_styles/normal = ExtResource( 3 )
@@ -118,9 +118,9 @@ text = " Settings"
 align = 0
 
 [node name="Credits" type="Button" parent="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 315.0
+margin_top = 270.0
 margin_right = 646.0
-margin_bottom = 430.0
+margin_bottom = 385.0
 focus_mode = 0
 custom_styles/hover = ExtResource( 4 )
 custom_styles/normal = ExtResource( 3 )
@@ -128,10 +128,20 @@ custom_fonts/font = ExtResource( 2 )
 text = " Credits"
 align = 0
 
+[node name="Quit" type="Button" parent="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 405.0
+margin_right = 646.0
+margin_bottom = 520.0
+custom_styles/hover = ExtResource( 4 )
+custom_styles/normal = ExtResource( 3 )
+custom_fonts/font = ExtResource( 2 )
+text = " Quit"
+align = 0
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="GUI Control/Borders/VBoxContainer/HBoxContainer"]
 margin_left = 650.0
 margin_right = 1850.0
-margin_bottom = 475.0
+margin_bottom = 520.0
 rect_min_size = Vector2( 1200, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -139,6 +149,15 @@ alignment = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.4
 [connection signal="button_up" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_Play_button_up"]
+[connection signal="mouse_entered" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Play" to="." method="_on_Play_mouse_entered"]
 [connection signal="button_up" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_Settings_button_up"]
+[connection signal="mouse_entered" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Settings" to="." method="_on_Settings_mouse_entered"]
 [connection signal="button_up" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_button_up"]
+[connection signal="mouse_entered" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Credits" to="." method="_on_Credits_mouse_entered"]
+[connection signal="mouse_entered" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_mouse_entered"]
+[connection signal="pressed" from="GUI Control/Borders/VBoxContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

@@ -2,8 +2,9 @@
 
 [ext_resource path="res://Fonts/LinLibertineFiltered.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Fonts/LinLibertine_DR.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/CharacterCreator.gd" type="Script" id=3]
+[ext_resource path="res://Scripts/CharacterCreator.gd" type="Script" id=3]
 [ext_resource path="res://Sprites/photos_2018_4_23_fst_brown-blank-old-paper.jpg" type="Texture" id=4]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 50
